@@ -1,0 +1,10 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: job_engine_db
+    environment:
+      POSTGRES_DB: job_engine
+      POSTGRES_USER: job
+      POSTGRES_PASSWORD: job
+    ports:
+      - "5432:5432"
