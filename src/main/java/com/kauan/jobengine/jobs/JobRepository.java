@@ -15,6 +15,7 @@ public interface JobRepository extends JpaRepository<Job, UUID> {
             value = """
                 select * from jobs
                 where status = 'PENDING'
+                    and next_run_at <= now()
                 order by created_at
                 for update skip locked
                 limit 1

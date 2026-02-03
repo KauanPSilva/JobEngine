@@ -25,6 +25,7 @@ public class Job {
 
     private Instant startedAt;
     private Instant finishedAt;
+    private Instant nextRunAt;
 
     @Column(nullable = false)
     private int attempts = 0;
@@ -52,6 +53,9 @@ public class Job {
 
     public Instant getFinishedAt() { return finishedAt; }
     public void setFinishedAt(Instant finishedAt) { this.finishedAt = finishedAt; }
+
+    public Instant getNextRunAt() { return nextRunAt; }
+    public void setNextRunAt(Instant nextRunAt) { this.nextRunAt = nextRunAt; }
 
     public int getAttempts() { return attempts; }
     public void setAttempts(int attempts) { this.attempts = attempts; }

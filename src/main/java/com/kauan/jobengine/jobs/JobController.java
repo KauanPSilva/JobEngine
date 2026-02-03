@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 
+import java.time.Instant;
 import java.util.UUID;
 import java.util.List;
 
@@ -50,6 +51,8 @@ public class JobController {
         job.setType(req.type());
         job.setPayload(req.payload());
         job.setStatus(JobStatus.PENDING);
+        job.setNextRunAt(Instant.now());
+
         return JobResponse.from(repo.save(job));
     }
 
